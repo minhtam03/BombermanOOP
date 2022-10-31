@@ -8,7 +8,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,
-6,7,7,7,7,7,7,7,7,7,6,7,7,7,7,7,7,7,7,7,6,7,7,7,7,7,7,7,7,7,6,
+6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,7,7,7,7,7,7,7,7,7,6,
 6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,
 6,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,7,6,
 6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,7,6,
@@ -30,7 +30,7 @@
   <object id="160" name="Item" type="bombsItem" x="726" y="150" width="36" height="36"/>
   <object id="161" name="Item" type="bombsItem" x="246" y="486" width="36" height="36"/>
   <object id="162" name="Item" type="flamePassItem" x="54" y="630" width="36" height="36"/>
-  <object id="163" name="Item" type="flamePassItem" x="534" y="342" width="36" height="36"/>
+  <object id="163" name="Item" type="flamePassItem" x="582" y="342" width="36" height="36"/>
   <object id="164" name="Item" type="flamePassItem" x="726" y="582" width="36" height="36"/>
   <object id="159" name="Item" type="flameItem" x="1062" y="630" width="36" height="36"/>
   <object id="599" name="Item" type="portal" x="246" y="342" width="36" height="36"/>
@@ -44,9 +44,9 @@
   </object>
   <object id="531" name="brick" type="brick" x="240" y="144" width="48" height="48">
    <ellipse/>
-  </object>
-  <object id="532" name="brick" type="brick" x="528" y="336" width="48" height="48">
-   <ellipse/>
+<!--   </object> -->
+<!--   <object id="532" name="brick" type="brick" x="528" y="336" width="48" height="48"> -->
+<!--    <ellipse/> -->
   </object>
   <object id="533" name="brick" type="brick" x="480" y="528" width="48" height="48">
    <ellipse/>
@@ -65,9 +65,9 @@
   </object>
   <object id="539" name="brick" type="brick" x="1248" y="240" width="48" height="48">
    <ellipse/>
-  </object>
-  <object id="540" name="brick" type="brick" x="48" y="240" width="48" height="48">
-   <ellipse/>
+<!--   </object> -->
+<!--   <object id="540" name="brick" type="brick" x="48" y="240" width="48" height="48"> -->
+<!--    <ellipse/> -->
   </object>
   <object id="541" name="brick" type="brick" x="144" y="144" width="48" height="48">
    <ellipse/>
@@ -107,9 +107,9 @@
   </object>
   <object id="553" name="brick" type="brick" x="624" y="240" width="48" height="48">
    <ellipse/>
-  </object>
-  <object id="554" name="brick" type="brick" x="480" y="336" width="48" height="48">
-   <ellipse/>
+<!--   </object> -->
+<!--   <object id="554" name="brick" type="brick" x="480" y="336" width="48" height="48"> -->
+<!--    <ellipse/> -->
   </object>
   <object id="555" name="brick" type="brick" x="576" y="336" width="48" height="48">
    <ellipse/>
@@ -308,9 +308,9 @@
   </object>
   <object id="603" type="wall" x="48" y="384" width="48" height="48">
    <ellipse/>
-  </object>
-  <object id="604" type="wall" x="480" y="144" width="48" height="48">
-   <ellipse/>
+<!--  </object> -->
+<!--   <object id="604" type="wall" x="480" y="144" width="48" height="48"> -->
+<!--    <ellipse/> -->
   </object>
   <object id="605" type="wall" x="960" y="144" width="48" height="48">
    <ellipse/>

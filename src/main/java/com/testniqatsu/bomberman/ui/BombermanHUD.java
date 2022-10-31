@@ -9,41 +9,45 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class BombermanHUD implements HUD {
-    final int padding = 20;
+    final int padding = 10;
 
     VBox hud;
 
     public BombermanHUD() {
-        var HUDRow0 = createRow0();
         var HUDRow1 = createRow1();
-        createHUD(HUDRow0, HUDRow1);
+        createHUD(HUDRow1);
     }
 
-    private HBox createRow0() {
-        var row = new HBox(
-                setTextUI("level", "LEVEL %d"),
-                createSpacer(),
-                setTextUI("time", "⏰ %d")
-        );
-        row.setAlignment(Pos.CENTER_LEFT);
-        row.setPadding(new Insets(0, padding, 0, padding));
-
-        return row;
-    }
+//    private HBox createRow0() {
+//        var row = new HBox(
+//                setTextUI("level", "LEVEL %d"),
+//                createSpacer()
+//                //setTextUI("time", "⏰ %d")
+//        );
+//        row.setAlignment(Pos.CENTER_LEFT);
+//        row.setPadding(new Insets(0, padding, 0, padding));
+//
+//        return row;
+//    }
 
     private HBox createRow1() {
         var row = new HBox(
+                setTextUI("level", "LEVEL %d"),
+                createSpacer(),
+                createSpacer(),
+                createSpacer(),
+                createSpacer(),
                 setTextUI("score", "SCORE %d"),
                 createSpacer(),
-                setTextUI("speed", "SPEED %d"),
+//                setTextUI("speed", "SPEED %d"),
                 createSpacer(),
-                setTextUI("flame", "FLAME %d"),
+//                setTextUI("flame", "FLAME %d"),
                 createSpacer(),
-                setTextUI("bomb", "BOMB %d"),
+//                setTextUI("bomb", "BOMB %d"),
                 createSpacer(),
-                setTextUI("life", "LIFE %d"),
-                createSpacer(),
-                setTextUI("numOfEnemy", "E %d")
+                setTextUI("life", "❤%d")
+                //createSpacer()
+                //setTextUI("numOfEnemy", "E %d")
         );
         row.setAlignment(Pos.CENTER_LEFT);
         row.prefWidthProperty().bind(FXGL.getSettings().actualWidthProperty());
@@ -70,8 +74,8 @@ public class BombermanHUD implements HUD {
     }
 
     private Text setTextUI(String valGame, String content) {
-        var text = FXGL.getUIFactoryService().newText("", 20);
-        text.setFill(Color.BLACK);
+        var text = FXGL.getUIFactoryService().newText("", 50);
+        text.setFill(Color.DEEPPINK);
         text.textProperty().bind(FXGL.getip(valGame).asString(content));
         return text;
     }

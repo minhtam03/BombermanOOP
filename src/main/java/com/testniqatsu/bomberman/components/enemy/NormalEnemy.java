@@ -145,6 +145,7 @@ public abstract class NormalEnemy extends Component {
             }
         }
         return false;
+
     }
 
     protected void showScore(int score) {

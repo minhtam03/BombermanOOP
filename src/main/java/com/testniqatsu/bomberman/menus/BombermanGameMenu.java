@@ -23,16 +23,16 @@ import static com.almasb.fxgl.dsl.FXGL.*;
 public class BombermanGameMenu extends FXGLMenu {
     public BombermanGameMenu() {
         super(MenuType.GAME_MENU);
-        Shape shape = new Rectangle(1080, 720, Color.GREY);
+        Shape shape = new Rectangle(1080, 720, Color.LIGHTCORAL);
         shape.setOpacity(0.5);
         getContentRoot().getChildren().add(shape);
 
         // UI background
         ImageView iv1 = new ImageView();
-        iv1.setImage(new Image("assets/textures/background_demo_1.png"));
+        iv1.setImage(new Image("assets/textures/theme1.png"));
         iv1.setX(1080 / 2.0 - 520 / 2.0);
         iv1.setY(100);
-        iv1.setEffect(new DropShadow(5, 3.5, 3.5, Color.WHITE));
+        iv1.setEffect(new DropShadow(5, 3.5, 3.5, Color.BLACK));
         iv1.setEffect(new Lighting());
         getContentRoot().getChildren().add(iv1);
 
@@ -49,23 +49,23 @@ public class BombermanGameMenu extends FXGLMenu {
         centerTextBind(version, getAppWidth() / 2.0, 280);
         getContentRoot().getChildren().addAll(title, version);
 
-        // UI Button
+//        // UI Button
         var menuBox = new VBox(
                 2,
-                new MenuButton("Resume", this::fireResume),
+                //new MenuButton("Resume", this::fireResume),
                 new MenuButton("Menu", this::fireExitToMainMenu),
-                new MenuButton("Sounds", this::setSoundEnabled),
-                new MenuButton("Exit", this::fireExit)
+                //new MenuButton("Sounds", this::setSoundEnabled),
+                new MenuButton("   Exit", this::fireExit)
         );
-
-        // set pos menu button
+//
+//        // set pos menu button
         menuBox.setAlignment(Pos.CENTER_LEFT);
         menuBox.setTranslateX(getAppWidth() / 2.0 - 60);
         menuBox.setTranslateY(getAppHeight() / 2.0 + 50);
         menuBox.setSpacing(10);
         getContentRoot().getChildren().addAll(menuBox);
     }
-
+//
     private void setSoundEnabled() {
         BombermanApp.isSoundEnabled = !BombermanApp.isSoundEnabled;
         getSettings().setGlobalMusicVolume(BombermanApp.isSoundEnabled ? 0.05 : 0.0);

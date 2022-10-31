@@ -36,7 +36,9 @@ public class BombermanApp extends GameApplication {
     private static final String TITLE = "BOMBERMAN";
     private static final String VERSION = "1.0";
 
-    private static final String FONT = "Retro Gaming.ttf";
+    private static final String FONT = "BILLD___.TTF";
+    private static final String FONT2 = "";
+    private static final String FONT3 = "";
 
     private static final int TIME_PER_LEVEL = 300;
     private static final int START_LEVEL = 0;
@@ -109,21 +111,21 @@ public class BombermanApp extends GameApplication {
         vars.put("level", START_LEVEL);
         vars.put("immortality", false);
         vars.put("numOfEnemy", 10);
-        vars.put("life", 3);
+        vars.put("life", 5);
     }
 
     @Override
     protected void onPreInit() {
-        getSettings().setGlobalMusicVolume(isSoundEnabled ? 0.05 : 0.0);
-        getSettings().setGlobalSoundVolume(isSoundEnabled ? 0.4 : 0.0);
-        loopBGM("title_screen.mp3");
+//        getSettings().setGlobalMusicVolume(isSoundEnabled ? 0.05 : 0.0);
+//        getSettings().setGlobalSoundVolume(isSoundEnabled ? 0.4 : 0.0);
+//        loopBGM("title_screen.mp3");
     }
 
     @Override
     protected void onUpdate(double tpf) {
 
         if (geti("time") == 0) {
-            showMessage("Game Over leu leu!!!", () -> getGameController().gotoMainMenu());
+            showMessage("Game Over", () -> getGameController().gotoMainMenu());
         }
 
         if (requestNewGame) {
@@ -131,7 +133,7 @@ public class BombermanApp extends GameApplication {
             getPlayer().getComponent(PlayerComponent.class).die();
             getGameTimer().runOnceAfter(() -> getGameScene().getViewport().fade(() -> {
                 if (geti("life") <= 0) {
-                    showMessage("Game Over leu leu!!!",
+                    showMessage("Game Over",
                             () -> getGameController().gotoMainMenu());
                 }
                 setLevel();
@@ -145,7 +147,7 @@ public class BombermanApp extends GameApplication {
         var hud = new BombermanHUD();
         var leftMargin = 0;
         var topMargin = 0;
-        getGameTimer().runOnceAfter(() -> FXGL.addUINode(hud.getHUD(), leftMargin, topMargin), Duration.seconds(3));
+        getGameTimer().runOnceAfter(() -> FXGL.addUINode(hud.getHUD(), leftMargin, topMargin), Duration.seconds(0));
 
     }
 
@@ -161,7 +163,7 @@ public class BombermanApp extends GameApplication {
             protected void onActionEnd() {
                 getPlayer().getComponent(PlayerComponent.class).stop();
             }
-        }, KeyCode.W);
+        }, KeyCode.UP);
 
         FXGL.getInput().addAction(new UserAction("Move Down") {
             @Override
@@ -173,7 +175,7 @@ public class BombermanApp extends GameApplication {
             protected void onActionEnd() {
                 getPlayer().getComponent(PlayerComponent.class).stop();
             }
-        }, KeyCode.S);
+        }, KeyCode.DOWN);
 
         FXGL.getInput().addAction(new UserAction("Move Left") {
             @Override
@@ -185,7 +187,7 @@ public class BombermanApp extends GameApplication {
             protected void onActionEnd() {
                 getPlayer().getComponent(PlayerComponent.class).stop();
             }
-        }, KeyCode.A);
+        }, KeyCode.LEFT);
 
         FXGL.getInput().addAction(new UserAction("Move Right") {
             @Override
@@ -197,7 +199,7 @@ public class BombermanApp extends GameApplication {
             protected void onActionEnd() {
                 getPlayer().getComponent(PlayerComponent.class).stop();
             }
-        }, KeyCode.D);
+        }, KeyCode.RIGHT);
 
         FXGL.getInput().addAction(new UserAction("Place Bomb") {
             @Override
@@ -248,35 +250,35 @@ public class BombermanApp extends GameApplication {
 
     private void loadNextLevel() {
         if (FXGL.geti("level") >= MAX_LEVEL) {
-            showMessage("You Win! bum bum bum!!!", () -> getGameController().gotoMainMenu());
+            showMessage("You Win!", () -> getGameController().gotoMainMenu());
         } else {
             getSettings().setGlobalMusicVolume(0);
             getInput().setProcessInput(false);
 
             play("stage_start.wav");
             inc("level", +1);
-            AnchorPane pane = creStartStage();
-            FXGL.addUINode(pane);
+            //AnchorPane pane = creStartStage();
+            //FXGL.addUINode(pane);
             getGameTimer().runOnceAfter(() -> {
-                FXGL.removeUINode(pane);
+                //FXGL.removeUINode(pane);
                 getSettings().setGlobalMusicVolume(0.05);
                 getInput().setProcessInput(true);
                 setLevel();
-            }, Duration.seconds(3));
+            }, Duration.seconds(0));
         }
     }
 
-    private AnchorPane creStartStage() {
-        AnchorPane pane = new AnchorPane();
-        Shape shape = new Rectangle(1080, 720, Color.BLACK);
-
-        var text = FXGL.getUIFactoryService().newText("STAGE " + geti("level"), Color.WHITE, 40);
-        text.setTranslateX((SCREEN_WIDTH >> 1) - 80);
-        text.setTranslateY((SCREEN_HEIGHT >> 1) - 20);
-        pane.getChildren().addAll(shape, text);
-
-        return pane;
-    }
+//    private AnchorPane creStartStage() {
+//        AnchorPane pane = new AnchorPane();
+//        Shape shape = new Rectangle(1080, 720, Color.BLACK);
+//
+//        var text = FXGL.getUIFactoryService().newText("STAGE " + geti("level"), Color.WHITE, 40);
+//        text.setTranslateX((SCREEN_WIDTH >> 1) - 80);
+//        text.setTranslateY((SCREEN_HEIGHT >> 1) - 20);
+//        pane.getChildren().addAll(shape, text);
+//
+//        return pane;
+//    }
 
     private void setLevel() {
         FXGL.setLevelFromMap("bbm_level" + FXGL.geti("level") + ".tmx");

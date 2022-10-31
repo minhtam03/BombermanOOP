@@ -27,7 +27,7 @@ public class BombermanMenu extends FXGLMenu {
     }
 
     private void displayBackground() {
-        var background = new Rectangle(FXGL.getAppWidth(), getAppHeight(), Color.BLACK);
+        var background = new Rectangle(FXGL.getAppWidth(), getAppHeight(), Color.LIGHTPINK);
         getContentRoot().getChildren().add(background);
     }
 
@@ -41,7 +41,7 @@ public class BombermanMenu extends FXGLMenu {
         centerTextBind(version, getAppWidth() / 2.0, 280);
 
         var dropShadow = new DropShadow();
-        dropShadow.setColor(Color.DARKBLUE);
+        dropShadow.setColor(Color.BROWN);
         dropShadow.setOffsetY(10);
         dropShadow.setOffsetX(10);
 
@@ -52,12 +52,12 @@ public class BombermanMenu extends FXGLMenu {
     }
 
     private void displayOptionsBox() {
-        var buttonTextSize = 40;
+        var buttonTextSize = 50;
 
-        // UI Button
+         //UI Button
         var menuBox = new VBox(
-                new MenuButton("NEW GAME", buttonTextSize, this::fireNewGame),
-                new MenuButton("CONTROL", buttonTextSize, this::instructions),
+                new MenuButton("New Game", buttonTextSize, this::fireNewGame),
+//                new MenuButton("CONTROL", buttonTextSize, this::instructions),
                 new MenuButton("EXIT", buttonTextSize, this::fireExit)
         );
 
@@ -76,14 +76,14 @@ public class BombermanMenu extends FXGLMenu {
         var pane = new GridPane();
         pane.setHgap(25);
         pane.setVgap(10);
-        pane.addRow(0, getUIFactoryService().newText("CONTROL"),
-                new HBox(4, new KeyView(W), new KeyView(S), new KeyView(A), new KeyView(D)));
+//        pane.addRow(0, getUIFactoryService().newText("CONTROL"),
+//                new HBox(4, new KeyView(W), new KeyView(S), new KeyView(A), new KeyView(D)));
         pane.addRow(1, getUIFactoryService().newText("PLACE BOMB"),
                 new KeyView(SPACE));
         pane.addRow(2, getUIFactoryService().newText("OPEN MENU GAME"),
                 new KeyView(ESCAPE));
 
         FXGL.getDialogService().showBox("HOW TO PLAY", pane, getUIFactoryService().newButton("OK"));
-    }
+   }
 
 }
